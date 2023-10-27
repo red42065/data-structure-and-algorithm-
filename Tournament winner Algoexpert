@@ -1,0 +1,35 @@
+from collections import Counter
+
+def tournamentWinner(competitions, results):
+    # Create an empty dictionary to keep track of each team's score
+    scores = {}
+
+    # Iterate through the competitions and results
+    for i in range(len(results)):
+        if results[i] == 0:
+            winning_team = competitions[i][1]
+        elif results[i] == 1:
+            winning_team = competitions[i][0]
+
+        # Update the score of the winning team
+        if winning_team in scores:
+            scores[winning_team] += 3
+        else:
+            scores[winning_team] = 3
+
+    # Find the team with the highest score
+    max_value_key = max(scores, key=scores.get)
+
+    return max_value_key
+
+# Define the competitions and results
+competitions = [
+    ["HTML", "C#"],
+    ["C#", "Python"],
+    ["Python", "HTML"]
+]
+results = [0, 0, 1]
+
+# Call the tournamentWinner function
+winner = tournamentWinner(competitions, results)
+print("The winning team is:", winner)
