@@ -1,0 +1,40 @@
+# This is an input class. Do not edit.
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+a = LinkedList(1)
+b = LinkedList(1)
+c = LinkedList(2)
+d= LinkedList(3)
+e= LinkedList(3)
+f= LinkedList(4)
+a.next = b
+b.next = c
+c.next = d
+d.next = e
+e.next = f
+def linkedlist_values(head):
+    #resturns a list of nodes in the linked list iteratively
+    current = head
+    nodes_array = []
+    while current is not None:
+        nodes_array.append(current.value)
+        current = current.next
+    return nodes_array
+def removeDuplicatesFromLinkedList(linkedList):
+    # Write your code here
+    current1 = linkedList
+    current2 = linkedList.next 
+    while current2 is not None:
+        if current1.value is current2.value:
+            current1.next = current2.next
+        else:
+            current1 = current1.next
+        current2 = current2.next
+        
+
+x=removeDuplicatesFromLinkedList(a)
+print(linkedlist_values(x))
