@@ -1,0 +1,44 @@
+# This is an input class. Do not edit.
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+def convert_num_into_linkedlist(number):
+    string = str(number)
+    l = []
+    for _ in string:
+        l.append(int(_))
+    reversed_list = l[::-1]
+    if not l:
+        return None
+
+    head = LinkedList(reversed_list[0])
+    current = head
+
+    for value in reversed_list[1:]:
+        current.next = LinkedList(value)
+        current = current.next
+
+    return head
+    
+def sumOfLinkedLists(linkedListOne, linkedListTwo):
+    # Write your code here.#
+    current1 = linkedListOne
+    current2 = linkedListTwo
+    l1 = []
+    l2 = []
+    while current1 is not None:
+        l1.append(current1.value)
+        current1 = current1.next
+    result1 = "".join(map(str,l1))
+    rev1 = result1[::-1]
+    while current2 is not None:
+        l2.append(current2.value)
+        current2 = current2.next
+    result2 = "".join(map(str,l2))
+    rev2 = result2[::-1]
+    s1 = int(rev1)
+    s2 = int(rev2)
+    s3 = s1 + s2
+    return convert_num_into_linkedlist(s3)
