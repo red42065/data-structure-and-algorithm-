@@ -1,0 +1,23 @@
+# Tip: You can use the type(element) function to check whether an item
+# is a list or an integer.
+
+def product(array,count):
+    sum = 0 
+    for i in range(len(array)):
+        if type(array[i]) == list:
+            sum = sum + count * product(array[i],count+1)
+        else:
+            sum = sum + array[i]
+    return sum
+
+def productSum(array):
+    # #base case
+    sum = 0
+    count = 2
+    # for i in range(len(array)):
+    #     if type(array[i]) == list:
+    #         sum = sum + count * productSum(array[i])  
+    #     else:
+    #         sum = sum + array[i]
+    # return sum
+    return product(array,count)
