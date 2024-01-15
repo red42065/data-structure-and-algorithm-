@@ -1,0 +1,15 @@
+def maxproductsubarray(array):
+    y = []
+    i = 0
+    j = 1
+    while j <= len(array):
+        y.append(array[i]*array[j])
+        i+=1
+        if j == len(array)-1:
+            break
+        j+=1
+    return max(y)
+# array = [2,3,-2,4]
+array = [2,0,-2,]
+
+print(maxproductsubarray(array))
