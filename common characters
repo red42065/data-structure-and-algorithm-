@@ -1,0 +1,27 @@
+def commonCharacters(strings):
+    y = []
+    z = []
+    x = set()
+    char_count = {}
+    for i in range(len(strings)):
+        for j in range(len(strings[i])):
+             x.add(strings[i][j])     
+        y.append(list(x))
+        x = set()
+    print(y)
+    for i in range(len(y)):
+        for j in range(len(y[i])):
+            if y[i][j] not in char_count.keys():
+                char_count[y[i][j]] = 1
+            else:
+                char_count[y[i][j]] += 1
+                
+    for keys,values in char_count.items():
+        if values == len(strings):
+            z.append(keys)
+    return z
+
+
+
+strings = ["abc", "bcd", "cbad"]
+print(commonCharacters(strings))
