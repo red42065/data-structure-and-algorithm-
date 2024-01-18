@@ -1,0 +1,28 @@
+class nodes:
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+a = nodes("a")
+b = nodes("b")
+c = nodes("c")
+d = nodes("d")
+e = nodes("e")
+f = nodes("f")
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+#find node dfs recursively 
+def findnode_dfs_recursive(root,k):
+    #base case
+    if root is None:
+        return False
+    if root.val == k:
+        return True
+    return findnode_dfs_recursive(root.right,k) or findnode_dfs_recursive(root.left,k)
+print(findnode_dfs_recursive(a,"e"))
