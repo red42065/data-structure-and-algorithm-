@@ -1,0 +1,32 @@
+class nodes:
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+a = nodes(1)
+b = nodes(3)
+c = nodes(5)
+d = nodes(7)
+e = nodes(8)
+f = nodes(10)
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+#find node dfs recursively 
+def treesome_dfs_iter(root):
+    running_sum = 0
+    stack = [root]
+    while len(stack) > 0:
+        current = stack.pop()
+        running_sum = running_sum + current.val
+        if current.right is not None:
+            stack.append(current.right)
+        if current.left is not None:
+            stack.append(current.left)
+    return running_sum
+treesome_dfs_iter(a)
