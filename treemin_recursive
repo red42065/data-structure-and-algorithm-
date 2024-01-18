@@ -1,0 +1,26 @@
+class nodes:
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+a = nodes(6)
+b = nodes(3)
+c = nodes(5)
+d = nodes(7)
+e = nodes(8)
+f = nodes(1)
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+#find node dfs recursively 
+def findmin_recursive(root):
+    #base case 
+    if root is None:
+        return float('inf')
+    return min(root.val,findmin_recursive(root.right),findmin_recursive(root.left))
+print(findmin_recursive(a))
