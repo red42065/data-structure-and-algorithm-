@@ -1,0 +1,29 @@
+class nodes:
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+a = nodes(6)
+b = nodes(3)
+c = nodes(5)
+d = nodes(7)
+e = nodes(8)
+f = nodes(1)
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+#find node dfs recursively 
+def maxpathsum(root):
+    #base case
+    if root is None:
+        return float('-inf')
+    if root.left is None and root.right is None:
+        return root.val
+    
+    return root.val + max(maxpathsum(root.right),maxpathsum(root.left))
+maxpathsum(a)
