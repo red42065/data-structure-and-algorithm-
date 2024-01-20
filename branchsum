@@ -1,0 +1,38 @@
+class nodes:
+    def __init__(self,value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+a = nodes(6)
+b = nodes(3)
+c = nodes(5)
+d = nodes(7)
+e = nodes(8)
+f = nodes(1)
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+def branch(root,runningsum,x):
+    #base case
+    if root is None:
+        return 
+
+    new_sum = runningsum + root.value
+    if root.left is None and root.right is None:
+        x.append(new_sum)
+        return
+    branch(root.left,new_sum,x)
+    branch(root.right,new_sum,x)
+
+def branchSums(root):
+    # Write your code here.
+    x = []
+    branch(root,0,x)
+    return x
+
+print(branchSums(a))
