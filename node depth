@@ -1,0 +1,38 @@
+class nodes:
+    def __init__(self,value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+a = nodes(6)
+b = nodes(3)
+c = nodes(5)
+d = nodes(7)
+e = nodes(8)
+f = nodes(1)
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+def depth(root,node_sum,x):
+    if root is None:
+        return 0
+    
+    x.append(node_sum)
+    
+    depth(root.right,node_sum + 1,x)
+    depth(root.left,node_sum + 1,x)
+
+def nodeDepths(root):
+    # Write your code here.
+    node_sum = 0
+    x = []
+    depth(root,node_sum,x)
+    sum = 0
+    for i in x:
+        sum = sum + i
+    return sum
+print(nodeDepths(a))
