@@ -1,0 +1,16 @@
+#dfs recursive
+graph = {
+    "a":["b","c"],
+    "b":["d"],
+    "c":["e"],
+    "d":["f"],
+    "e":[],
+    "f":[]
+        }
+result_dfs = []
+def recursivedfs(graph,source):
+    result_dfs.append(source)
+    for i in graph[source]:
+        recursivedfs(graph,i)
+recursivedfs(graph,"a")
+print(result_dfs)
