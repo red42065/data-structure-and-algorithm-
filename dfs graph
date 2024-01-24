@@ -1,0 +1,22 @@
+def dfs(graph,source):
+    stack = [source]
+    result_dfs = []
+    
+    while len(stack) != 0:
+        current = stack.pop()
+        result_dfs.append(current)
+
+        for i in graph[current]:
+            stack.append(i)
+    
+    return result_dfs
+
+graph = {
+    "a":["b","c"],
+    "b":["d"],
+    "c":["e"],
+    "d":["f"],
+    "e":[],
+    "f":[]
+        }
+dfs(graph,"a")
