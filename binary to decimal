@@ -1,0 +1,12 @@
+def btod(n):
+    num = 0
+    leng = len(n)
+    p2 = 1
+    
+    for i in range(leng):
+        if n[i] == '1':
+            num = num + p2
+        p2 = p2*2
+    return num
+    
+print(btod("11"))
