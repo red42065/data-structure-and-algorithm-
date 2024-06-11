@@ -1,0 +1,12 @@
+def dtob(n):
+    res = []
+    while n!=0:
+        if n % 2 == 1:
+            res.append("1")
+        else:
+            res.append("0")
+        n = n//2
+    res = res[::-1]
+    return res
+
+print(dtob(3))
